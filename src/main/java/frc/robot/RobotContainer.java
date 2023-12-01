@@ -18,6 +18,7 @@ import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import edu.wpi.first.wpilibj2.command.WaitCommand;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
+import frc.robot.commands.DriveTimedCommand;
 
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a
@@ -65,7 +66,7 @@ public class RobotContainer {
  
   private void setupDashboard(){
     m_autoDisplay.addOption("stall", new WaitCommand(2));
-    m_autoDisplay.addOption("service dog", new DriveTimedCommand(2,-0.5,m_driverController));
+    m_autoDisplay.addOption("service dog", new DriveTimedCommand(2.0,-0.5,driveSubsystem));
 
     SmartDashboard.putData("Auto", m_autoDisplay);
   }
