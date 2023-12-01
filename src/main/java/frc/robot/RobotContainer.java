@@ -9,7 +9,13 @@ import frc.robot.commands.Autos;
 import frc.robot.commands.ExampleCommand;
 import frc.robot.subsystems.DriveSubsystem;
 import frc.robot.subsystems.ExampleSubsystem;
+import edu.wpi.first.util.sendable.Sendable;
+import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj2.command.InstantCommand;
+import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
+import edu.wpi.first.wpilibj2.command.WaitCommand;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 
@@ -27,10 +33,15 @@ public class RobotContainer {
   public static final CommandXboxController m_driverController =
       new CommandXboxController(OperatorConstants.kDriverControllerPort);
 
+      SendableChooser<Command> m_autoDisplay = new SendableChooser<>();
+        
+
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
     // Configure the trigger bindings
     configureBindings();
+    setupDashboard();
+
   }
 
   /**
@@ -51,7 +62,13 @@ public class RobotContainer {
     // cancelling on release.
     //m_driverController.b().whileTrue(m_exampleSubsystem.exampleMethodCommand());
   }
+ 
+  private void setupDashboard(){
+    m_autoDisplay.addOption("stall", new WaitCommand(2));
+    m_autoDisplay.addOption("service dog", new DriveTimedCommand(2,-0.5,m_driverController));
 
+    SmartDashboard.putData("Auto", m_autoDisplay);
+  }
   /**
    * Use this to pass the autonomous command to the main {@link Robot} class.
    *
