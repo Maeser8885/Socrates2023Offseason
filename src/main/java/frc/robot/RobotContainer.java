@@ -34,7 +34,10 @@ public class RobotContainer {
   public static final CommandXboxController m_driverController =
       new CommandXboxController(OperatorConstants.kDriverControllerPort);
 
-      SendableChooser<Command> m_autoDisplay = new SendableChooser<>();
+      //press straight if were in middle if right then rig and left then lef
+      SendableChooser<Command> m_autoDisplayStr = new SendableChooser<>();
+      SendableChooser<Command> m_autoDisplayRig = new SendableChooser<>();
+      SendableChooser<Command> m_autoDisplayLef = new SendableChooser<>();
         
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
@@ -65,10 +68,22 @@ public class RobotContainer {
   }
  
   private void setupDashboard(){
-    m_autoDisplay.addOption("stall", new WaitCommand(2));
-    m_autoDisplay.addOption("service dog", new DriveTimedCommand(2.0,-0.5,driveSubsystem));
+    m_autoDisplayStr.addOption("stall", new WaitCommand(2));
+    m_autoDisplayStr.addOption("service dog go forward", new DriveTimedCommand(6.0,3.0,driveSubsystem));
 
-    SmartDashboard.putData("Auto", m_autoDisplay);
+    //TODO Add commandgroups
+    m_autoDisplayLef.addOption("stall", new WaitCommand(2));
+    m_autoDisplayLef.addOption("service dog", new DriveTimedCommand(6.0,3.0,driveSubsystem));
+
+    m_autoDisplayRig.addOption("stall ", new WaitCommand(2));
+    m_autoDisplayRig.addOption("service dog ", new DriveTimedCommand(6.0,3.0,driveSubsystem));
+
+
+
+    SmartDashboard.putData("Auto Straight", m_autoDisplayStr);
+    SmartDashboard.putData("Auto Left", m_autoDisplayLef);
+    SmartDashboard.putData("Auto Right", m_autoDisplayRig);
+
   }
   /**
    * Use this to pass the autonomous command to the main {@link Robot} class.
