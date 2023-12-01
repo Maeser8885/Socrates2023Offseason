@@ -24,8 +24,9 @@ public class ExampleCommand extends CommandBase {
   }
 
   // Called when the command is initially scheduled.
+  //I added m_subsystem.getClass(); to remove the error of unused :/
   @Override
-  public void initialize() {}
+  public void initialize() {m_subsystem.getClass();}
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
