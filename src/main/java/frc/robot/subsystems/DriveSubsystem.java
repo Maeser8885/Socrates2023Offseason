@@ -19,7 +19,7 @@ public class DriveSubsystem extends SubsystemBase{
     MotorControllerGroup rightGroup = new MotorControllerGroup(frSpark, brSpark);
     MotorControllerGroup leftGroup = new MotorControllerGroup(flSpark, blSpark);
     
-    DifferentialDrive driver; 
+    public DifferentialDrive driver; 
 
     public DriveSubsystem(){
         rightGroup.setInverted(true);

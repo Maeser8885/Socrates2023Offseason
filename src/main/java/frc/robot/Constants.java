@@ -23,4 +23,15 @@ public final class Constants {
     public static final int kbrMotorPort = 2;
     public static final int kblMotorPort = 3;
   }
+
+  //TODO Change these 
+  public static class AutonomousConstants{
+    public static final double kWaitBetweenCommands = 1.0;
+    public static final double kMaxSpeed = 1.0;
+  }
+
+  public static class RotationConstants{
+    public static final double kDegTimeRatio = 1.0;
+    public static double kRotationSpeed = 1.0;
+  }
 }
