@@ -1,0 +1,35 @@
+{
+  "NTProvider": {
+    "types": {
+      "/FMSInfo": "FMSInfo",
+      "/LiveWindow/Ungrouped/DifferentialDrive[1]": "DifferentialDrive",
+      "/LiveWindow/Ungrouped/Scheduler": "Scheduler",
+      "/SmartDashboard/Auto Left": "String Chooser",
+      "/SmartDashboard/Auto Right": "String Chooser",
+      "/SmartDashboard/Auto Straight": "String Chooser"
+    },
+    "windows": {
+      "/SmartDashboard/Auto Left": {
+        "window": {
+          "visible": true
+        }
+      }
+    }
+  },
+  "NetworkTables": {
+    "transitory": {
+      "FMSInfo": {
+        "open": true
+      },
+      "LiveWindow": {
+        ".status": {
+          "open": true
+        },
+        "open": true
+      },
+      "SmartDashboard": {
+        "open": true
+      }
+    }
+  }
+}

@@ -3,6 +3,7 @@ package frc.robot.subsystems;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
 import edu.wpi.first.wpilibj.motorcontrol.Spark;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
@@ -32,8 +33,18 @@ public class DriveSubsystem extends SubsystemBase{
     } 
 
     public CommandBase getArcadeDriveCommand(){
-        return this.run(() -> arcadeDrive(RobotContainer.m_driverController.getLeftY(), RobotContainer.m_driverController.getLeftX()));
+        return this.run(() -> arcadeDrive(RobotContainer.m_driverController.getLeftX(), RobotContainer.m_driverController.getLeftY()));
     }
 
+    @Override
+    public void periodic() {
+        SmartDashboard.putNumber("FL", frSpark.get());
+        SmartDashboard.putNumber("FR", flSpark.get());
+        SmartDashboard.putNumber("BL", brSpark.get());
+        SmartDashboard.putNumber("BR", blSpark.get());
+        SmartDashboard.putNumber("Right", rightGroup.get());
+        SmartDashboard.putNumber("Left", leftGroup.get());
+
+    }
 
 }
