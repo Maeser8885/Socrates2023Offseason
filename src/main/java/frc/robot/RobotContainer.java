@@ -14,6 +14,8 @@ import edu.wpi.first.wpilibj2.command.WaitCommand;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 import frc.robot.commands.DriveTimedCommand;
+import frc.robot.commands.LeftCommandGroup;
+import frc.robot.commands.RightCommandGroup;
 
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a
@@ -62,16 +64,16 @@ public class RobotContainer {
     //m_driverController.b().whileTrue(m_exampleSubsystem.exampleMethodCommand());
   }
  
+  //TODO change time and speed
   private void setupDashboard(){
     m_autoDisplayStr.addOption("stall", new WaitCommand(2));
     m_autoDisplayStr.addOption("service dog go forward", new DriveTimedCommand(6.0,3.0,driveSubsystem));
 
-    //TODO Add commandgroups
     m_autoDisplayLef.addOption("stall", new WaitCommand(2));
-    m_autoDisplayLef.addOption("service dog", new DriveTimedCommand(6.0,3.0,driveSubsystem));
+    m_autoDisplayLef.addOption("service dog go forward left forward", new LeftCommandGroup(driveSubsystem));
 
     m_autoDisplayRig.addOption("stall ", new WaitCommand(2));
-    m_autoDisplayRig.addOption("service dog ", new DriveTimedCommand(6.0,3.0,driveSubsystem));
+    m_autoDisplayRig.addOption("service dog go forward right forward", new RightCommandGroup(driveSubsystem));
 
 
 
