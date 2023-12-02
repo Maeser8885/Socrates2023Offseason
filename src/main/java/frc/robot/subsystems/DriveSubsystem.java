@@ -33,7 +33,7 @@ public class DriveSubsystem extends SubsystemBase{
     } 
 
     public CommandBase getArcadeDriveCommand(){
-        return this.run(() -> arcadeDrive(RobotContainer.m_driverController.getLeftX(), RobotContainer.m_driverController.getLeftY()));
+        return this.run(() -> arcadeDrive(RobotContainer.m_driverController.getLeftY(), -RobotContainer.m_driverController.getLeftX()));
     }
 
     @Override
