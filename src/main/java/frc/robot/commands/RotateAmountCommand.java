@@ -9,10 +9,10 @@ import frc.robot.subsystems.DriveSubsystem;
 
 import edu.wpi.first.wpilibj.Timer;
 
-import edu.wpi.first.wpilibj2.command.CommandBase;
+import edu.wpi.first.wpilibj2.command.Command;
 
 /** An example command that uses an example subsystem. */
-public class RotateAmountCommand extends CommandBase {
+public class RotateAmountCommand extends Command {
   @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
   private final DriveSubsystem m_driveSubsystem;
   private final double m_time;
